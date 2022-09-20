@@ -1,12 +1,13 @@
 require("dotenv").config();
-const express = require("express");
+var cors = require('cors')
+var express = require("express");
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const cors = require('cors')
-
 const app = express();
 app.use(cors())
+
+
 port = process.env.PORT || 3000;
 
 // models
@@ -14,7 +15,7 @@ const User = require("./models/User");
 
 // Config JSON response
 app.use(express.json());
-
+'use strict'
 // Open Route
 app.get("/", (req, res) => {
   res.status(200).json({ msg: "Bem vindo a ERROR 404!" });
