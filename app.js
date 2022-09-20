@@ -15,14 +15,13 @@ const User = require("./models/User");
 
 // Config JSON response
 app.use(express.json());
-'use strict'
 // Open Route
 app.get("/", (req, res) => {
   res.status(200).json({ msg: "Bem vindo a ERROR 404!" });
 });
 
 // Private Route
-app.get("/user/:id", checkToken, async (req, res) => {
+app.get("/user/:id", cors(), checkToken, async (req, res) => {
   const id = req.params.id;
 
   // check if user exists
@@ -95,9 +94,8 @@ function checkToken(req, res, next) {
  // }
 //});
 
-app.post("/auth/login", async (req, res) => {
+app.post("/auth/login", cors(), async (req, res) => {
   const { nomePersonagem, senha } = req.body;
-  res.header("Access-Control-Allow-Origin")
 
   // validations
   if (!nomePersonagem) {
