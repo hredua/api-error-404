@@ -5,7 +5,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const app = express();
-app.use(cors())
+
 
 
 port = process.env.PORT || 3000;
@@ -97,6 +97,7 @@ function checkToken(req, res, next) {
 
 app.post("/auth/login", async (req, res) => {
   const { nomePersonagem, senha } = req.body;
+  res.header("Access-Control-Allow-Origin")
 
   // validations
   if (!nomePersonagem) {
@@ -148,4 +149,5 @@ mongoose
     console.log("Conectou ao banco!");
   })
   .catch((err) => console.log(err));
+  app.use(cors())
   app.listen(port)
