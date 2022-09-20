@@ -145,9 +145,6 @@ mongoose
   )
   .then(() => {
     console.log("Conectou ao banco!");
-    app.listen(port);
   })
   .catch((err) => console.log(err));
-  var routes = require('/');
-  routes(app);
   app.listen(port)
