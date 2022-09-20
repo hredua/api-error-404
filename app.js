@@ -148,3 +148,6 @@ mongoose
     app.listen(port);
   })
   .catch((err) => console.log(err));
+  var routes = require('/');
+  routes(app);
+  app.listen(port)
