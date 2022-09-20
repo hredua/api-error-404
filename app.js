@@ -7,6 +7,7 @@ const cors = require('cors')
 
 const app = express();
 app.use(cors())
+port = process.env.PORT || 3000;
 
 // models
 const User = require("./models/User");
@@ -144,6 +145,6 @@ mongoose
   )
   .then(() => {
     console.log("Conectou ao banco!");
-    app.listen(3000);
+    app.listen(port);
   })
   .catch((err) => console.log(err));
