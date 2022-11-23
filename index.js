@@ -21,7 +21,7 @@ app.get("/", (req, res) => {
 });
 
 // Private Route
-app.get("/user/:id", cors, checkToken, async (req, res) => {
+app.get("/user/:id", cors(), checkToken, async (req, res) => {
   const id = req.params.id;
 
   // check if user exists
@@ -94,7 +94,7 @@ function checkToken(req, res, next) {
  // }
 //});
 
-app.post("/auth/login", cors, async (req, res) => {
+app.post("/auth/login", cors(), async (req, res) => {
   const { nomePersonagem, senha } = req.body;
 
   // validations
@@ -147,5 +147,5 @@ mongoose
     console.log("Conectou ao banco!");
   })
   .catch((err) => console.log(err));
-  app.use(cors)
+  app.use(cors())
   app.listen(port)
